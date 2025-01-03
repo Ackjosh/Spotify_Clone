@@ -1,4 +1,4 @@
-let currentSong = new Audio();//declaring it to chnage it afterwards
+let currentSong = new Audio();//declaring it to change it afterwards
 let currFolder;
 
 function formatTime(seconds) {
