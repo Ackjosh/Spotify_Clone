@@ -44,29 +44,25 @@
     background-color:rgb(36, 36, 36);
     color: white;
 }
-/* Scrollbar Track */
+
 ::-webkit-scrollbar {
-    width: 8px; /* Width of the scrollbar */
-    height: 8px; /* Height of the scrollbar for horizontal scroll */
+    width: 8px; 
+    height: 8px; 
 }
 
-/* Scrollbar Track */
 ::-webkit-scrollbar-track {
-    background-color: #2b2b2b; /* Dark background color for the track */
+    background-color: #2b2b2b;
 }
 
-/* Scrollbar Thumb */
 ::-webkit-scrollbar-thumb {
-    background-color: #555; /* Dark gray thumb color */
-    border-radius: 4px; /* Rounded edges for thumb */
+    background-color: #555;
+    border-radius: 4px;
 }
 
-/* Hover effect on the thumb */
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #777; /* Lighter gray on hover */
+    background-color: #777;
 }
 
-/* Optional: Scrollbar Corner for resizable scrollbars */
 ::-webkit-scrollbar-corner {
     background-color: #2b2b2b;
 }
