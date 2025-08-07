@@ -126,6 +126,6 @@ Contributions are welcome to enhance the functionality and design of this Spotif
 
 For questions or more information about this Spotify Clone, feel free to reach out:
 
-- Email: your.email@example.com
-- GitHub: [username](https://github.com/username)
-- LinkedIn: [Your Name](https://linkedin.com/in/your-profile)
+- Email: akshatdjoshi@gmail.com
+- GitHub: [Ackjosh](https://github.com/Ackjosh)
+- LinkedIn: [Akshat Joshi](https://www.linkedin.com/in/akshat-joshi-17ab542b9/)
