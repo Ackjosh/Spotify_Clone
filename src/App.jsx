@@ -9,9 +9,7 @@ function formatTime(seconds) {
     return `${formattedMinutes}:${formattedSeconds}`;
 }
 
-// Main App Component
 function App() {
-    // --- State Variables ---
     const currentSongRef = useRef(new Audio());
     const [currentFolder, setCurrentFolder] = useState('');
     const [songs, setSongs] = useState([]);
@@ -22,7 +20,6 @@ function App() {
     const [volume, setVolume] = useState(0.1);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-    // Function to fetch songs in a given folder
     const getSongs = useCallback(async (folderPath) => {
         setCurrentFolder(folderPath);
 
@@ -43,7 +40,6 @@ function App() {
         }
     }, []);
 
-    // Function to play or load music
     const playMusic = useCallback((track, folderToPlayFrom = currentFolder, pause = false, shouldLoadOnly = false) => {
         if (!track) {
             currentSongRef.current.pause();
@@ -89,7 +85,6 @@ function App() {
         setCurrentSongInfo(decodeURI(track));
     }, [currentFolder]);
 
-    // Audio time update listener and ended listener
     useEffect(() => {
         const audio = currentSongRef.current;
 
@@ -124,7 +119,6 @@ function App() {
         };
     }, [songs, playMusic, currentFolder]);
 
-    // Play/Pause button handler
     const handlePlayPauseClick = () => {
         if (!currentSongRef.current.src && songs.length > 0) {
              playMusic(songs[0], currentFolder);
@@ -140,7 +134,6 @@ function App() {
         }
     };
 
-    // Previous song button handler
     const handlePreviousClick = () => {
         currentSongRef.current.pause();
         const currentTrackFilename = decodeURIComponent(currentSongRef.current.src.split("/").pop());
@@ -150,7 +143,6 @@ function App() {
         }
     };
 
-    // Next song button handler
     const handleNextClick = () => {
         currentSongRef.current.pause();
         const currentTrackFilename = decodeURIComponent(currentSongRef.current.src.split("/").pop());
@@ -167,7 +159,6 @@ function App() {
         }
     };
 
-    // Seekbar click handler
     const handleSeekbarClick = (e) => {
         const seekbar = e.currentTarget;
         let percent = (e.nativeEvent.offsetX / seekbar.getBoundingClientRect().width) * 100;
@@ -176,14 +167,12 @@ function App() {
         }
     };
 
-    // Volume range handler
     const handleVolumeChange = (e) => {
         const newVolume = parseInt(e.target.value) / 100;
         currentSongRef.current.volume = newVolume;
         setVolume(newVolume);
     };
 
-    // Mute/Unmute handler
     const handleToggleMute = () => {
         if (currentSongRef.current.volume === 0) {
             currentSongRef.current.volume = 0.1;
@@ -194,7 +183,6 @@ function App() {
         }
     };
 
-    // Card click handler (to load new playlist)
     const handleCardClick = useCallback(async (folderNumber) => {
         const folderPath = `songs/${folderNumber}`;
         const newSongs = await getSongs(folderPath);
@@ -210,7 +198,6 @@ function App() {
         }
     }, [getSongs, playMusic]);
 
-    // Hamburger menu toggle
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
